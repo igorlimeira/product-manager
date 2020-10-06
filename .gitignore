@@ -1,0 +1,66 @@
+*/target/
+*/bin/
+/log/
+!.mvn/wrapper/maven-wrapper.jar
+.metadata
+.metadata/*
+.metadata/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+*.log
+*.tmp
+*.gz
+*.DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/.metadata/
+/.DS_Store
+/bin/
+/.bin/
+../bin/
+/target/
+/.target/
+../target/
+
+### VSCode ###
+.vscode
+
+### Maven Eclipse Plugin ###
+.externalToolBuilders
+
+### Notepad++ ###
+*.bak
+
+### Outros ###
+*.bat
+*.key
+*.exe
+
+**/src/test/
+*xsd.yml
+
+/${env.JBOSS_HOME}/
+
+
+.metadata/.log
+.metadata/.plugins/
