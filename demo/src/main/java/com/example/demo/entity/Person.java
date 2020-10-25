@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -26,14 +29,26 @@ public class Person implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	Long id;
+	@JsonProperty("id")
+	private Long id;
 	
 	@Column(name = "user_first_name")
-	String nome;
+	@JsonProperty("user_first_name")
+	private String nome;
 	
 	@Column(name = "user_last_name")
-	String sobreNome;
+	@JsonProperty("user_last_name")
+	private String sobreNome;
 	
 	@Column(name = "user_cpf")
-	String cpf;
+	@JsonProperty("user_cpf")
+	private String cpf;
+	
+	@Column(name = "uuid")
+	@JsonProperty("uuid")
+	private String uuid;
+	
+	@Column(name="passphrase")
+	@JsonProperty("passphrase")
+	private String senha;
 }
