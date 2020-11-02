@@ -6,6 +6,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import com.br.app.controllers.UserController;
+import com.br.app.entities.User;
 
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
@@ -73,6 +74,7 @@ public class Login extends JPanel {
 		add(lblNewLabel_3);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//User userObject = new User();
 				String user = textField.getText();
 				@SuppressWarnings("deprecation")
 				String password = passwordField.getText();
