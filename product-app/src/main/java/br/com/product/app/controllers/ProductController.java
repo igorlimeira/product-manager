@@ -1,10 +1,10 @@
 package br.com.product.app.controllers;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.product.app.models.Product;
 import br.com.product.app.repositories.ProductRepository;
-
+@CrossOrigin
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -68,3 +68,4 @@ public class ProductController {
 	}
 
 }
+
