@@ -3,19 +3,19 @@
         <div class="card">
             <div class="card-content">
                 <span class="card-title">{{ editMode ? 'Edit' : 'Create'}}  Product</span>
-                <form>
+                <form *ngIf="form" [formGroup]="form">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input type="text" id="barCode">
-                            <label for="barCode">Bar Code</label>
+                            <input type="text" id="barCode" formControlName="barCode">
+                            <label for="barCode" [class.active]="form.get('barCode').value != null">Bar Code</label>
                         </div>
                         <div class="input-field col s12">
-                            <input type="text" id="description">
-                            <label for="description">Description</label>
+                            <input type="text" id="description" formControlName="description">
+                            <label for="description" [class.active]="form.get('description').value != null">Description</label>
                         </div>
                         <div class="input-field col s12">
-                            <input type="text" id="price">
-                            <label for="price">Price</label>
+                            <input type="text" id="price" formControlName="price">
+                            <label for="price" [class.active]="form.get('price').value != null">Price</label>
                         </div>
                     </div>
                 </form>
@@ -25,7 +25,9 @@
                     <button class="btn waves-effect cyan" routerLink="/products">Cancel</button>
                 </div>
                 <div class="p-2">
-                    <button class="btn waves-effect green">Add Product</button>
+                    <button class="btn waves-effect green">
+                        {{ editMode ? 'Edit' : 'Add'}} Product
+                    </button>
                 </div>
             </div>
     </div>

@@ -26,4 +26,8 @@ export class ProductsService {
     );
   }
 
+  getProduct(id: number): Observable<Product>{
+    return this.http.get<Product>(this.baseUrl + "/lp/" + id);
+  }
+
 }

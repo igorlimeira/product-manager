@@ -10,6 +10,7 @@
                             <th>Bar Code</th>
                             <th>Description</th>
                             <th>Price</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -18,6 +19,11 @@
                             <td>{{product.barCode}}</td>
                             <td>{{product.description}}</td>
                             <td>{{product.price}}</td>
+                            <td>
+                                <a class="btn-floating btn-small waves-effect waves-light cyan" routerLink="/products/{{product.id}}">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

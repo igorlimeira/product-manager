@@ -11,6 +11,10 @@ const routes : Routes = [
   {
     path: 'new',
     loadChildren: './products-form/product-form.view.module#ProductFormViewModule'
+  },
+  {
+    path: ':id',
+    loadChildren: './products-form/product-form.view.module#ProductFormViewModule'
   }
 ];
 
