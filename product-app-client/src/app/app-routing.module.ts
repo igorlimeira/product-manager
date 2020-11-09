@@ -9,10 +9,6 @@ const routes: Routes = [
     redirectTo: '/products',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'products',
-  //   component: ProductsView
-  // }
   {
     path: 'products',
     loadChildren: './views/products/products.module#ProductsModule'
