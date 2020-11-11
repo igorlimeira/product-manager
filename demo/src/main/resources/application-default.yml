@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: sample-app
-  jmx:
-    default-domain: ${spring.application.name}
-  profiles:
-    include: ${SAMPLE_AMBIENTE:personal}
