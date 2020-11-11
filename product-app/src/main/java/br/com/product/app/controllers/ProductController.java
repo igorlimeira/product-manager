@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,33 +40,38 @@ public class ProductController {
 		}
 	}
 
-	@PostMapping("/add")
-	public String insertProduct(@RequestBody Product product) {
-		this.productRepository.saveAndFlush(product);
-		return "Produto inserido com sucesso!";
+	@PostMapping("/save")
+	public Product insertProduct(@RequestBody Product product) {
+		if(StringUtils.isEmpty(product.getBarCode())
+				|| StringUtils.isEmpty(product.getDescription())
+				|| product.getPrice() == null){
+			throw new RuntimeException("Invalid Data");
+		}
+		return this.productRepository.saveAndFlush(product);
 	}
 
 	@DeleteMapping("delete/{id}")
-	public String deleteProduct(@PathVariable(name = "id")  Long id) {
-		boolean isPresent = this.productRepository.findById(id).isPresent();
-		if(isPresent) {
+	public Product deleteProduct(@PathVariable(name = "id")  Long id) {
+		Optional<Product> product = this.productRepository.findById(id);
+		if(product.isPresent()) {
+			Product deletedProduct = product.get();
 			this.productRepository.deleteById(id);
-			return "ID " + id + " deletado com sucesso!";
+			return deletedProduct;
 		}else{
 			throw new RuntimeException("ID " + id + " não existe!");
 		}
 	}
 
-	@PutMapping("/update")
-	public String updateProduct(@RequestBody Product product) {
-		boolean isPresent = this.productRepository.findById(product.getId()).isPresent();
-		if(isPresent) {
-			this.productRepository.saveAndFlush(product);
-			return "ID " + product.getId() + " alterado com sucesso!";
-		}else{
-			throw new RuntimeException("ID " + product.getId() + " não existe!");
-		}
-	}
+//	@PutMapping("/update")
+//	public String updateProduct(@RequestBody Product product) {
+//		boolean isPresent = this.productRepository.findById(product.getId()).isPresent();
+//		if(isPresent) {
+//			this.productRepository.saveAndFlush(product);
+//			return "ID " + product.getId() + " alterado com sucesso!";
+//		}else{
+//			throw new RuntimeException("ID " + product.getId() + " não existe!");
+//		}
+//	}
 
 }
 

@@ -1,14 +1,8 @@
 package br.com.product.app.models;
 
-import java.math.BigDecimal;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
 
 @Entity
 @Table
@@ -23,7 +17,7 @@ public class Product{
 	@JsonProperty("description")
 	private String description;
 	@JsonProperty("price")
-	private BigDecimal price;
+	private Double price;
 
 	public String getBarCode() {
 		return barCode;
@@ -38,10 +32,10 @@ public class Product{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public BigDecimal getPrice() {
+	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(BigDecimal price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 	public Long getId() {

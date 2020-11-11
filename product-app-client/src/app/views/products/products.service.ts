@@ -9,25 +9,32 @@ import { Product } from './products.model'
 })
 export class ProductsService {
 
-  private mProducts = new BehaviorSubject<Product[]>([]);
+  // private mProducts = new BehaviorSubject<Product[]>([]);
   constructor(private http : HttpClient) { }
   private baseUrl = 'http://localhost:8080/products'
 
-  get products(): Observable<Product[]>{
-    return this.mProducts.asObservable();
-  }
+  // get products(): Observable<Product[]>{
+  //   return this.mProducts.asObservable();
+  // }
 
-  fetchProducts(): Observable<any>{
+  fetchProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl + "/lap")
-    .pipe(
-      tap(products => {
-        this.mProducts.next(products);
-      })
-    );
+    // .pipe(
+    //   tap(products => {
+    //     this.mProducts.next(products);
+    //   })
+    // );
   }
 
   getProduct(id: number): Observable<Product>{
     return this.http.get<Product>(this.baseUrl + "/lp/" + id);
   }
 
+  addProduct(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.baseUrl + "/save", product);
+  }
+
+  deleteProduct(id: number): Observable<Product>{
+    return this.http.delete<Product>(this.baseUrl + "/delete/" + id);
+  }
 }

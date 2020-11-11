@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsView } from './products.view';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductFormViewModule } from './products-form/product-form.view.module'
+import { DataTablesModule } from 'angular-datatables';
 const routes : Routes = [
   {
     path: '',
@@ -22,7 +23,8 @@ const routes : Routes = [
   declarations: [ProductsView],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    DataTablesModule
   ]
 })
 export class ProductsModule { }
