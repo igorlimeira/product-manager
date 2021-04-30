@@ -1,3 +1,7 @@
+body{
+    background: url(assets/img/dreamstime_xxl_103898454.jpg) center;
+}
+
 .d-flex{
     display: flex;
 }
@@ -17,3 +21,21 @@
 .p-2{
     padding: 0.3em;
 }/* You can add global styles to this file, and also import other style files */
+
+.dataTables_length {
+    label {
+        select{
+            display: initial;
+            width: auto;
+        }
+    }
+}
+
+.dataTables_filter {
+    label {
+        input{
+            width: auto !important;
+            padding-left: 10px im !important;
+        }
+    }
+}

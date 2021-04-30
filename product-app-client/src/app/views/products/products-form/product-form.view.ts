@@ -61,7 +61,7 @@ export class ProductFormView implements OnInit{
         }
 
         this.productService.addProduct(value).subscribe(() => {
-            this.router.navigate(['/products']);
+            this.router.navigate(['/admin/products']);
         });
     }
 

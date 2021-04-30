@@ -6,12 +6,16 @@ import { ProductsModule } from './views/products/products.module'
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/products',
+    redirectTo: '/admin/products',
     pathMatch: 'full'
   },
   {
-    path: 'products',
+    path: 'admin/products',
     loadChildren: './views/products/products.module#ProductsModule'
+  },
+  {
+    path: 'auth',
+    loadChildren: './views/auth/auth.module#AuthModule'
   }
 ];
 
