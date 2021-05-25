@@ -31,5 +31,7 @@ export class AuthPage implements OnInit{
     if(this.form.invalid){
       return
     }
+    this.authService.login(this.form.value);
+    this.router.navigate(['/admin', 'products']);
   }
 }

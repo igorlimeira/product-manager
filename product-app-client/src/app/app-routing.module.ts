@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsView } from './views/products/products.view';
 import { ProductsModule } from './views/products/products.module'
 import {AuthModule} from './views/auth/auth.module'
+import {AuthGuard} from './views/auth/auth.guard'
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
   },
   {
     path: 'admin/products',
-    loadChildren: './views/products/products.module#ProductsModule'
+    loadChildren: './views/products/products.module#ProductsModule',
+    canActivate: [AuthGuard]
   },
   {
     path: 'auth',
