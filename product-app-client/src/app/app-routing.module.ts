@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductsView } from './views/products/products.view';
 import { ProductsModule } from './views/products/products.module'
+import {AuthModule} from './views/auth/auth.module'
 
 const routes: Routes = [
   {
